@@ -1,6 +1,5 @@
 import requests, pandas as pd
 
-
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
 
@@ -31,7 +30,7 @@ def save_response_content(response, destination):
                 f.write(chunk)
 
 if __name__ == "__main__":
-    sheet_url = "https://docs.google.com/spreadsheets/d/1SNIq6aHixb-Qf0egPVxMnThReml81Cet1dbB1GUdOTk/edit#gid=0"
+    sheet_url = "DRIVE EXCEL SHEET LINK"
     url = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
     df = pd.read_csv(url, usecols = ['Recording Link'])
 
