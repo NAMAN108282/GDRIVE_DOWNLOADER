@@ -30,9 +30,9 @@ def save_response_content(response, destination):
                 f.write(chunk)
 
 if __name__ == "__main__":
-    sheet_url = "DRIVE EXCEL SHEET LINK"
+    sheet_url = "DRIVE EXCEL SHEET LINK" 
     url = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
-    df = pd.read_csv(url, usecols = ['Recording Link'])
+    df = pd.read_csv(url, usecols = ['COLUMN HEADER NAME'])
 
     arr = df.values.tolist()
     c = 0
@@ -42,7 +42,7 @@ if __name__ == "__main__":
             print(c, str(i)[34:67])
 
             file_id = str(i)[34:67]
-            destination = f"E:\SCRATCH\{file_id}.mp4"
+            destination = f"E:\SCRATCH\{c}-{file_id}.mp4" # DESTINATION PATH FOR DOWNLOAD
             try:
                 download_file_from_google_drive(file_id, destination)
             except PermissionError:
